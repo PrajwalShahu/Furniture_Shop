@@ -52,7 +52,7 @@ class BookShelf : Furniture
     {
         Console.WriteLine("BookShelf Details:");
         base.Display();
-        Console.WriteLine("Number of Shelves: {0}", NoOfShelves);
+        Console.WriteLine($"Number of Shelves: {NoOfShelves}");
     }
 }
 
@@ -72,7 +72,7 @@ class DiningTable : Furniture
     {
         Console.WriteLine("DiningTable Details:");
         base.Display();
-        Console.WriteLine("Number of Legs: {0}", NoOfLegs);
+        Console.WriteLine($"Number of Legs: {NoOfLegs}");
     }
 }
 
@@ -80,13 +80,13 @@ class Program
 {
     static void Main()
     {
-        Furniture[] stock = new Furniture[2];
+        Furniture[] stock = new Furniture[5];
 
         int count = AddToStock(stock);
-        Console.WriteLine("{0} furniture details accepted.\n", count);
+        Console.WriteLine($"{count} furniture details accepted.\n");
 
         double totalValue = TotalStockValue(stock);
-        Console.WriteLine("Total stock value: {0}%", totalValue);
+        Console.WriteLine($"Total stock value: {totalValue}");
 
         ShowStockDetails(stock);
     }
@@ -97,7 +97,7 @@ class Program
 
         while (count < stock.Length)
         {
-            Console.WriteLine("Enter furniture {0} details:", count + 1);
+            Console.WriteLine($"Enter furniture {count + 1} details:");
             Console.WriteLine("1. BookShelf");
             Console.WriteLine("2. DiningTable");
             Console.Write("Enter your choice: ");
@@ -131,7 +131,7 @@ class Program
 
         foreach (Furniture item in stock)
         {
-            totalValue += (item.Price * item.Qty);
+            totalValue = totalValue + (item.Price * item.Qty);
         }
 
         return totalValue;
